@@ -1,0 +1,83 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FolwerController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UploadController;
+use App\Http\Controllers\GenerateController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\GenneratelistController;
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/folwers', [App\Http\Controllers\FolwerController::class, 'indexxl'])->name('comment');
+
+
+
+Route::get('/test',function(){
+    return view('testtemplate');
+});
+Route::resource('folwers',FolwerController::class);
+Route::get('/detail/{id}', [App\Http\Controllers\FolwerController::Class, 'detail']);
+// Route::get('/folwers', [App\Http\Controllers\FolwerController::class, 'indexxl'])->name('comment');
+Route::resource('users',UserController::class);
+Route::resource('generates',GenerateController::class);
+Route::resource('comments',CommentController::class);
+Route::resource('orders',OrderController::class);
+Route::resource('generatelists',GenneratelistController::class);
+// Route::get('/replymas', [App\Http\Controllers\HomeController::class, 'addform'])->name('replymas');
+Route::get('/addreplymas/{id}', [App\Http\Controllers\HomeController::class, 'addform']);
+Route::post('/replymas/{id}', [App\Http\Controllers\HomeController::class, 'addreplymas']);
+Route::get('/orderlist/{id}', [OrderController::class, 'show'])->name('orderlist.show');
+Route::post('/orderlist/updateStatus', [OrderController::class, 'updateStatus'])->name('orderlist.updateStatus');
+// Route::get('/generatelist/{id}', [GeneratelistController::class, 'show'])->name('generatelists.show');
+
+Route::get('/addgeneratelist1/{id}', [App\Http\Controllers\GenneratelistController::class, 'addform']);
+Route::post('/generatelits1/{id}', [App\Http\Controllers\GenneratelistController::class, 'generatelist']);
+Route::post('/generatelist/updateStatus', [GenneratelistController::class, 'updateStatus'])->name('orderlist.updateStatus');
+
+// Route::post('/comment/{id}', 'BlogController@addcomment');
+// Route::post('upload',[UploadController::class,'index']);
+// Route::get('/orderlist/{order_idorder}', 'OrderListController@show')->name('orderlist.show');
+// Route::post('/update-status-to-2', 'OrderListController@updateStatusTo2')->name('orderlist.updateStatusTo2'); 
+// Route::post('/update-status-to-5', 'OrderListController@updateStatusTo5')->name('orderlist.updateStatusTo5');
+Route::get('/acceptorder', [App\Http\Controllers\OrderController::class, 'acceptorder']);
+Route::get('/cancelorder', [App\Http\Controllers\OrderController::class, 'cancelorder']);
+
+
+
+// Assuming you have the routes defined like this
+
+
+// Existing routes...
+
+// Route::post('/update-status-to-2', [OrderController::class, 'updateStatusTo2'])->name('orderlist.updateStatusTo2');
+// Route::post('/update-status-to-4', [OrderController::class, 'updateStatusTo5'])->name('orderlist.updateStatusTo5');//เส้นทางเปลี่ยนสถานะของคำสั่งซื้อดอกไม้และยอมรับดอกไม้
+
+
+// testdata
+// Route::get('/testdata', function () {
+//     return view('testdata');
+// });
+// Route::get('/addcomment/{id}', 'BlogController@addform');// get เส้นทางเดียว
+// ตัวอย่างการประกาศ route ใน web.php
+
+
+
