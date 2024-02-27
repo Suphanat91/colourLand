@@ -15,7 +15,7 @@
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <th>ลำดับ</th>
-                  <th>ชื่อดอกกหกไม้</th>
+                  <th>ชื่อดอกไม้</th>
                   {{-- <th>รายละเอียด</th> --}}
                   <th>จำนวน</th>
                   <th>ราคา</th>
