@@ -148,15 +148,11 @@ return view('cancelorder', ['orderItems' => $orderItems]);
 }
 public function checkmoney()
 {
-    // $Items = Order::where('status4', '0')->get();
+    $Items = Order::where('status4', '0')->get();
     // dd($Items);
-    
-// ส่งข้อมูลไปยัง view และแสดงผล
-// return view('checkmoney', compact('orderItems'));
-$Items = Order::with('user')->where('status4', '0')->get();
 
-// ส่งข้อมูลไปยัง view
-return view('checkmoney', ['Items' => $Items]);
+// ส่งข้อมูลไปยัง view และแสดงผล
+return view('checkmoney', compact('Items'));
 
 }
 }

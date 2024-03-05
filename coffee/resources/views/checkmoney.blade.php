@@ -29,7 +29,7 @@
 
                   <tr>
                     <th scope="row">{{$d->idorder}}</th>
-                    <td>{{ optional($d->users_id)->name ?? 'No User' }}</td>
+                    <td>{{$d->user->name}}</td>
                     
                     <td>{{$d->count_t}} ถาด</td>
                     <td>{{$d->price_t}} บาท</td>
