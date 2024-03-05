@@ -58,7 +58,7 @@ public function chat()
 }
 public function order()
 {
-    return $this->hasMany(Order::class);
+    return $this->hasMany(Order::class, 'idorder');
 }
 public function genenratelist()
 {
