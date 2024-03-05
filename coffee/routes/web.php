@@ -62,6 +62,7 @@ Route::post('/generatelist/updateStatus', [GenneratelistController::class, 'upda
 Route::get('/acceptorder', [App\Http\Controllers\OrderController::class, 'acceptorder']);
 Route::get('/cancelorder', [App\Http\Controllers\OrderController::class, 'cancelorder']);
 Route::get('/checkmoney', [App\Http\Controllers\OrderController::class, 'checkmoney']);
+Route::get('/moneysuccess', [App\Http\Controllers\OrderController::class, 'moneysuccess']);
 
 
 

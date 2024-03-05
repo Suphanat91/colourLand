@@ -36,16 +36,16 @@
                     <td>{{$d->slip}}</td> 
                     <td>{{$d->created_at}}</td> 
                     @if ($d->status4 == 0)
-                        <td><a href="/addgeneratelist1/{{$d->idorderlist}}" class="btn btn-warning mb-1  ">จ่ายงาน</a>
+                        <td><a href="/addgeneratelist1/{{$d->idorderlist}}" class="btn btn-success mb-1  ">จ่ายเงินถูกต้อง</a>
                           <form action="{{ route('orderlist.updateStatus') }}" method="POST">
                             @csrf
                             <input type="hidden" name="order_idorder" value="{{ $d->idorderlist }}">
                             <input type="hidden" name="status2" value="5"> <!-- หรือ value="5" สำหรับฟอร์มยกเลิก -->
-                            <button type="submit" class="btn btn-success">จ่ายงานเสร็จเเล้ว</button> <!-- เปลี่ยนเป็น "ยกเลิก" ในฟอร์มยกเลิก -->
+                            <button type="submit" class="btn btn-danger">จ่ายเงินไม่ถูกต้อง</button> <!-- เปลี่ยนเป็น "ยกเลิก" ในฟอร์มยกเลิก -->
                         </form></td>
                         
                     @else
-                        <td><p class="text-success ">จ่ายงานไปแล้ว</p></td>
+                        <td><p class="text-success ">ตรวจไปแล้ว</p></td>
                     @endif
 
                     {{-- <a href="/folwers/create" class="btn btn-primary">เพิ่มข้อมูล</a> --}}

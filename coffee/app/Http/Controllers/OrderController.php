@@ -155,4 +155,13 @@ public function checkmoney()
 return view('checkmoney', compact('Items'));
 
 }
+public function moneysuccess()
+{
+    $Items = Order::where('status4', '0')->get();
+    // dd($Items);
+
+// ส่งข้อมูลไปยัง view และแสดงผล
+return view('moneysuccess', compact('Items'));
+
+}
 }
