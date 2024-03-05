@@ -29,6 +29,10 @@ class HomeController extends Controller
     {
         $comments = Comment::all(); // หรือจะดึงข้อมูลในรูปแบบอื่น ๆ ก็ได้
         $chat = Chat::all(); // หรือจะดึงข้อมูลในรูปแบบอื่น ๆ ก็ได้
+        $unreadMessagesCount = Chat::where('is_read', 'false')->count();
+
+        // Using compact
+        // return view('home', compact('unreadMessagesCount'));  
         // $items = Item::all();
         $countorderlist = OrderList::where('status2', '1')->count();
         $countorderlist1 = OrderList::where('status2', '3')->count();
@@ -37,7 +41,7 @@ class HomeController extends Controller
 
         // นับจำนวนแถวข้อมูลที่ดึงมา
         $count = Comment::count();
-        $count = Chat::count();
+        // $count = Chat::count();
         
         $users = User::all();
 
@@ -50,7 +54,7 @@ class HomeController extends Controller
 
         // ส่งข้อมูลไปยัง View
         // return view('your.view', compact('items', 'count'));
-        return view('home',  compact('comments','chat', 'count','userCount','countorderlist','countorderlist1','countorderlist2'));
+        return view('home',  compact('comments','chat', 'count','userCount','countorderlist','countorderlist1','countorderlist2','unreadMessagesCount'));
 
         // $comments = Comment::all(); // หรือจะดึงข้อมูลในรูปแบบอื่น ๆ ก็ได้
         // return view('layouts.coffeetable', ['comments' => $comments]);
@@ -66,6 +70,7 @@ class HomeController extends Controller
 
     public function addreplymas(Request $request,$id)
     {
+        
         $ob = new Replymas();
         $ob->replymas = $request ['replymas'];
         // $ob->user = $request ['user'];
@@ -76,6 +81,17 @@ class HomeController extends Controller
         return redirect("home");
     }
 
-    
+
+
+    // public function markAsRead($messageId)
+    // {
+    //     $message = Chat::findOrFail($messageId);
+    //     $message->is_read = true;
+    //     $message->save();
+
+    //     // After marking as read, you can redirect back to the messages page or wherever is appropriate
+    //     return redirect()->back()->with('status', 'Message marked as read');
+    // }
+
     
 }

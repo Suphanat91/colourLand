@@ -24,8 +24,19 @@ class GenneratelistController extends Controller
     // // ส่งข้อมูลไปยัง view และแสดงผล
     // return view('orderlist', compact('orderItems'));
     // $orderItems = Orderlist::where('status', 2)->get();
-    $orderItems = Orderlist::whereIn('status2', ['2', '5'])->get(); // ตรวจสอบว่าค่าใน ENUM เป็น string หรือไม่
+    // $orderItems = Orderlist::whereIn('status2', ['2', '5'])->get(); // ตรวจสอบว่าค่าใน ENUM เป็น string หรือไม่
+    $orderItems = Orderlist::whereHas('order', function ($query) {
+        $query->where('status4', '1');;
+    })
+    ->where('status2', '2')
+    ->get();
 
+// return view('your_view', compact('records'));
+
+    // $orderItems = OrderList::where('status2', '2')
+    //                 ->whereNotNull('slip')
+    //                 ->get();
+        // dd($orderItems);
 // ส่งข้อมูลไปยัง view และแสดงผล
 return view('generatelist', ['orderItems' => $orderItems]);
 

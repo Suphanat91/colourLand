@@ -76,14 +76,14 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            {{-- <div class="sidebar-heading">
                 Interface
-            </div>
+            </div> --}}
                 <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
+                    <i class="bi bi-basket"></i>
                     <span>คำสั่งซื้อ</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
@@ -91,27 +91,54 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="{{ url('/orders') }}">คำสั่งซื้อ</a>
-                        <a class="collapse-item" href="{{ url('/generatelists') }}">จัดการคำสั่งซื้อ</a>
+                        {{-- <a class="collapse-item" href="{{ url('/generatelists') }}">จัดการคำสั่งซื้อ</a> --}}
                         <a class="collapse-item" href="{{ url('/acceptorder') }}">คำสั่งซื้อที่ส่งสำเร็จเเล้ว</a>
                         <a class="collapse-item" href="{{ url('/cancelorder') }}">คำสั่งที่ถูกยกเลิก</a>
                     </div>
                 </div>
             </li>
-            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>จัดการ ผู้ใช้งาน & สินค้า</span>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
+                    aria-expanded="true" aria-controls="collapsePages2">
+                    <i class="bi bi-currency-dollar"></i>
+                    <span>การเงิน</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapsePages2" class="collapse" aria-labelledby="headingPages2" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
-                        <a class="collapse-item" href="{{ url('/folwers') }}">สินค้า</a>
-                        <a class="collapse-item" href="{{ url('/users') }}">ผู้ใช้งาน</a>
+                        {{-- <h6 class="collapse-header">ข้อความ</h6> --}}
+                        <a class="collapse-item" href="login.html">ตรวจสอบการดอนเงิน</a>
+                        <a class="collapse-item" href="{{  url('/comments') }}">โอนเงินสำเร็จ</a>
+                       <a class="collapse-item" href="forgot-password.html">โอนเงินไม่สำเร็จ</a>
+                        {{-- <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Other Pages:</h6>
+                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item" href="blank.html">Blank Page</a> --}}
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="bi bi-clipboard2-check"></i>
+                    <span>จ่ายงาน</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">งาน</h6>
+                        <a class="collapse-item" href="{{ url('/generatelists') }}">งานที่ต้องจ่าย</a>
+                        <a class="collapse-item" href="{{ url('/generates') }}">งานที่มีการอัพเดต</a>
+                        <a class="collapse-item" href="{{ url('/generates') }}">อัตราการผลิต</a>
+                       {{-- <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">Other Pages:</h6>
+                        <a class="collapse-item" href="404.html">404 Page</a>
+                        <a class="collapse-item" href="blank.html">Blank Page</a> --}}
+                    </div>
+                </div>
+            </li>
+            
+            
+
 
             
 
@@ -119,30 +146,26 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            {{-- <div class="sidebar-heading">
                 Addons
-            </div>
+            </div> --}}
 
             <!-- Nav Item - Pages Collapse Menu -->
-            {{-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>ความคิดเห็น</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">ข้อความ</h6>
-                        <a class="collapse-item" href="login.html">ข้อความ</a>
-                        <a class="collapse-item" href="{{  url('/comments') }}">ความคิดเห็น</a>
-                       <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
+           <!-- Nav Item - Pages Collapse Menu -->
+           <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>จัดการ ผู้ใช้งาน & สินค้า</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    {{-- <h6 class="collapse-header">Custom Components:</h6> --}}
+                    <a class="collapse-item" href="{{ url('/folwers') }}">สินค้า</a>
+                    <a class="collapse-item" href="{{ url('/users') }}">ผู้ใช้งาน</a>
                 </div>
-            </li> --}}
+            </div>
+        </li>
 
             <!-- Nav Item - Charts -->
             {{-- <li class="nav-item">
@@ -150,11 +173,11 @@
                     <i class="bi bi-chat-dots"></i>
                     <span>ความคิดเห็น</span></a>
             </li> --}}
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="{{ url('/generates') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>อัตราการผลิต</span></a>
-            </li>
+            </li> --}}
 
             {{-- <!-- Nav Item - Tables -->
             <li class="nav-item">

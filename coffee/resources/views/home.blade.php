@@ -37,15 +37,17 @@
 @endsection
 
 @section('countchat')
-@foreach ($chat as $itemq)
+@foreach ( $chat as $itemq)
                                     
                                 
-<span class="badge badge-danger badge-counter">{{ $itemq->count()}}</span>
+{{-- <span class="badge badge-danger badge-counter">{{ $itemq->count()}}</span> --}}
+<span class="badge badge-danger badge-counter">{{ $unreadMessagesCount }}</span>
 @endforeach
 @endsection
 
 
  @section('alertchat')
+ 
  @foreach ($chat as $i)
      
  

@@ -27,6 +27,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/mark-as-read/{messageId}', [App\Http\Controllers\HomeController::class, 'markAsRead']);
 // Route::get('/folwers', [App\Http\Controllers\FolwerController::class, 'indexxl'])->name('comment');
 
 
