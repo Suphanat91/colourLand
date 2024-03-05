@@ -148,11 +148,30 @@ return view('cancelorder', ['orderItems' => $orderItems]);
 }
 public function checkmoney()
 {
-    $Items = Order::where('status4', '0')->get();
+    $Items = Order::whereIn('status4', ['0','1','2'])->get();
     // dd($Items);
 
 // ส่งข้อมูลไปยัง view และแสดงผล
 return view('checkmoney', compact('Items'));
+
+}
+
+public function acceptcheckmoney()
+{
+    $Items = Order::where('status4', '1')->get();
+    // dd($Items);
+
+// ส่งข้อมูลไปยัง view และแสดงผล
+return view('acceptcheckmoney', compact('Items'));
+
+}
+public function rejectcheckmoney()
+{
+    $Items = Order::where('status4', '2')->get();
+    // dd($Items);
+
+// ส่งข้อมูลไปยัง view และแสดงผล
+return view('rejectcheckmoney', compact('Items'));
 
 }
 public function moneysuccess()
@@ -164,4 +183,23 @@ public function moneysuccess()
 return view('moneysuccess', compact('Items'));
 
 }
+
+public function acceptOrder1(Order $order)
+{
+    $order->status4 = '1';
+    $order->save();
+
+    // Redirect กลับไปยังหน้าที่มี list ของ orders
+    return back()->with('success', 'Order has been accepted.');
+}
+
+public function rejectOrder(Order $order)
+{
+    $order->status4 = '2'; // หรือค่าอื่นที่คุณใช้สำหรับการแสดงถึง 'ไม่ยอมรับ'
+    $order->save();
+
+    // Redirect กลับไปยังหน้าที่มี list ของ orders
+    return back()->with('success', 'Order has been rejected.');
+}
+
 }

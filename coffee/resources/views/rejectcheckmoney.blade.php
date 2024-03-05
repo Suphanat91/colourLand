@@ -21,7 +21,7 @@
                   <th>ราคา</th>
                   <th>หลักฐานการโอนเงิน</th>
                   <th>ปี/เดือน/วัน</th>
-                  <th>จัดการ</th>
+                  <th>สถานะ</th>
                 </thead>
                 
                 <tbody>
@@ -37,20 +37,10 @@
                     <td>{{$d->created_at}}</td> 
                     
                     <td>
-                      @if ($d->status4 == 0)
-                        <form action="{{ route('order.accept1', $d->idorder) }}" method="POST">
-                          @csrf
-                          <button type="submit" class="btn btn-success">จ่ายเงินถูกต้อง</button>
-                        </form>
-             
-                        <form action="{{ route('order.reject', $d->idorder) }}" method="POST">
-                            @csrf
-                            <button type="submit" class="btn btn-danger mt-3" >จ่ายเงินผิดพลาด</button>
-                        </form>
+                     
+                      <p class="text-danger ">ชำระเงินไม่สำเร็จ</p>
                   
-                    @else
-                        <p class="text-success ">ตรวจไปแล้ว</p>
-                    @endif
+                    
                   </td> 
 
                     {{-- <a href="/folwers/create" class="btn btn-primary">เพิ่มข้อมูล</a> --}}

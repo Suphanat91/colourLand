@@ -62,7 +62,13 @@ Route::post('/generatelist/updateStatus', [GenneratelistController::class, 'upda
 Route::get('/acceptorder', [App\Http\Controllers\OrderController::class, 'acceptorder']);
 Route::get('/cancelorder', [App\Http\Controllers\OrderController::class, 'cancelorder']);
 Route::get('/checkmoney', [App\Http\Controllers\OrderController::class, 'checkmoney']);
-Route::get('/moneysuccess', [App\Http\Controllers\OrderController::class, 'moneysuccess']);
+Route::get('/acceptcheckmoney', [App\Http\Controllers\OrderController::class, 'acceptcheckmoney']);
+Route::get('/rejectcheckmoney', [App\Http\Controllers\OrderController::class, 'rejectcheckmoney']);
+// Route สำหรับการยอมรับ order
+Route::post('/order/{order}/accept', [OrderController::class, 'acceptOrder1'])->name('order.accept1');
+
+// Route สำหรับการไม่ยอมรับ order
+Route::post('/order/{order}/reject', [OrderController::class, 'rejectOrder'])->name('order.reject');
 
 
 

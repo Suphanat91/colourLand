@@ -106,9 +106,9 @@
                 <div id="collapsePages2" class="collapse" aria-labelledby="headingPages2" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         {{-- <h6 class="collapse-header">ข้อความ</h6> --}}
-                        <a class="collapse-item" href="login.html">ตรวจสอบการดอนเงิน</a>
-                        <a class="collapse-item" href="{{  url('/comments') }}">โอนเงินสำเร็จ</a>
-                       <a class="collapse-item" href="forgot-password.html">โอนเงินไม่สำเร็จ</a>
+                        <a class="collapse-item" href="{{ url('/checkmoney') }}">ตรวจสอบการดอนเงิน</a>
+                        <a class="collapse-item" href="{{ url('/acceptcheckmoney') }}">โอนเงินสำเร็จ</a>
+                       <a class="collapse-item" href="{{ url('/rejectcheckmoney') }}">โอนเงินไม่สำเร็จ</a>
                         {{-- <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Other Pages:</h6>
                         <a class="collapse-item" href="404.html">404 Page</a>
