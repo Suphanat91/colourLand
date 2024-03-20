@@ -16,4 +16,7 @@ class Generatelist extends Model
     public function orderlist(){
         return $this->belongsTo(Orderlist::class,'orderlist_idorderlist');
     }
+    public function imagework(){
+        return $this->hasMany(Imagework::class,'idgenerate_list');
+    }
 }

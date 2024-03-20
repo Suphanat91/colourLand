@@ -62,12 +62,14 @@
                   <form action="{{ route('orderlist.updateStatus') }}" method="POST">
                     @csrf
                     <input type="hidden" name="order_idorder" value="{{ $d->idorderlist }}">
-                    <input type="hidden" name="status2" value="4"> <!-- หรือ value="5" สำหรับฟอร์มยกเลิก -->
+                    <input type="hidden" name="status2" value="3"> <!-- หรือ value="5" สำหรับฟอร์มยกเลิก -->
                     <button type="submit" class="btn btn-danger">ไม่รับ</button> <!-- เปลี่ยนเป็น "ยกเลิก" ในฟอร์มยกเลิก -->
                 </form>
               </td> 
-                    @else
+                    {{-- @elseif ($d->status2 == 2)
                         <td><p class="text-success " class="fst-italic">ยอมรับคำสั่งซื้อเเล้ว</p></td>
+                        @elseif ($d->status2 == 3)
+                        <td><p class="text-danger " class="fst-italic">ไม่ยอมรับคำสั่งซื้อ</p></td> --}}
                     @endif
                     
                 

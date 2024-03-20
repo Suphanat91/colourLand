@@ -18,7 +18,7 @@
                   {{-- <th>รายละเอียด</th> --}}
                   <th>ชื่อดอกไม้</th>
                   <th>จำนวน</th>
-                  <th>จัดการ</th>
+                  {{-- <th>จัดการ</th> --}}
                 </thead>
                 
                 <tbody>
@@ -33,8 +33,8 @@
 
                     {{-- <td>{{$d->count}}ถาด</td> --}}
                     
-                    <td>
-                      <a href="/folwers/{{$d->idfolwer}}/edit" class="btn btn-primary">ให้งาน</a>
+                    {{-- <td> --}}
+                      {{-- <a href="/folwers/{{$d->idfolwer}}/edit" class="btn btn-primary">ให้งาน</a> --}}
 
                       
                       {{-- <form action="/folwers/{{$d->idfolwer}}" method="post">
@@ -42,7 +42,7 @@
                         @csrf
                         <button type="submit" class="btn btn-danger" onclick="confirmDelete(event)">ลบ</button>
                       </form> --}}
-                    </td>
+                    {{-- </td> --}}
                   </tr>
 
                   @endforeach

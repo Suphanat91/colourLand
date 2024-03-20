@@ -92,7 +92,7 @@
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="{{ url('/orders') }}">คำสั่งซื้อ</a>
                         {{-- <a class="collapse-item" href="{{ url('/generatelists') }}">จัดการคำสั่งซื้อ</a> --}}
-                        <a class="collapse-item" href="{{ url('/acceptorder') }}">คำสั่งซื้อที่ส่งสำเร็จเเล้ว</a>
+                        <a class="collapse-item" href="{{ url('/acceptorder') }}">คำสั่งซื้อที่ถูกยอมรับ</a>
                         <a class="collapse-item" href="{{ url('/cancelorder') }}">คำสั่งที่ถูกยกเลิก</a>
                     </div>
                 </div>
@@ -461,7 +461,7 @@
             <footer class="sticky-footer bg-white mt-5" >
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span> &copy; ColourLand 2024</span>
                     </div>
                 </div>
             </footer>

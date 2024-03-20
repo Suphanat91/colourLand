@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Orderlist;
+use App\Models\Generatelist;
 // use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -52,7 +53,7 @@ class OrderController extends Controller
     public function show($id)
 {
     // กรองเฉพาะรายการที่มี order_idorder เท่ากับ $id และ status เท่ากับ 1
-    $orderItems = Orderlist::where('order_idorder', $id)->whereIn('status2', ['1','2','5'])->get();
+    $orderItems = Orderlist::where('order_idorder', $id)->whereIn('status2', ['1'])->get();
 
     // ส่งข้อมูลไปยัง view และแสดงผล
     return view('orderlist', compact('orderItems'));
@@ -132,7 +133,7 @@ class OrderController extends Controller
     }
     public function acceptorder()
 {
-    $orderItems = Orderlist::where('status2', '3')->get();
+    $orderItems = Orderlist::where('status2', '2')->get();
 
 // ส่งข้อมูลไปยัง view และแสดงผล
 return view('acceptorder', ['orderItems' => $orderItems]);
@@ -140,7 +141,7 @@ return view('acceptorder', ['orderItems' => $orderItems]);
 }
 public function cancelorder()
 {
-    $orderItems = Orderlist::where('status2', '4')->get();
+    $orderItems = Orderlist::where('status2', '3')->get();
 
 // ส่งข้อมูลไปยัง view และแสดงผล
 return view('cancelorder', ['orderItems' => $orderItems]);
@@ -148,7 +149,7 @@ return view('cancelorder', ['orderItems' => $orderItems]);
 }
 public function checkmoney()
 {
-    $Items = Order::whereIn('status4', ['0','1','2'])->get();
+    $Items = Order::whereIn('status4', ['3','1','2'])->get();
     // dd($Items);
 
 // ส่งข้อมูลไปยัง view และแสดงผล
@@ -158,7 +159,7 @@ return view('checkmoney', compact('Items'));
 
 public function acceptcheckmoney()
 {
-    $Items = Order::where('status4', '1')->get();
+    $Items = Order::where('status4', '2')->get();
     // dd($Items);
 
 // ส่งข้อมูลไปยัง view และแสดงผล
@@ -167,7 +168,7 @@ return view('acceptcheckmoney', compact('Items'));
 }
 public function rejectcheckmoney()
 {
-    $Items = Order::where('status4', '2')->get();
+    $Items = Order::where('status4', '3')->get();
     // dd($Items);
 
 // ส่งข้อมูลไปยัง view และแสดงผล
@@ -186,7 +187,7 @@ return view('moneysuccess', compact('Items'));
 
 public function acceptOrder1(Order $order)
 {
-    $order->status4 = '1';
+    $order->status4 = '2';
     $order->save();
 
     // Redirect กลับไปยังหน้าที่มี list ของ orders
@@ -195,11 +196,23 @@ public function acceptOrder1(Order $order)
 
 public function rejectOrder(Order $order)
 {
-    $order->status4 = '2'; // หรือค่าอื่นที่คุณใช้สำหรับการแสดงถึง 'ไม่ยอมรับ'
+    $order->status4 = '3'; // หรือค่าอื่นที่คุณใช้สำหรับการแสดงถึง 'ไม่ยอมรับ'
     $order->save();
 
     // Redirect กลับไปยังหน้าที่มี list ของ orders
     return back()->with('success', 'Order has been rejected.');
+}
+public function updatework()
+{
+    $watchwork = Generatelist::has('imagework')->get(); //เอาดูการอัพเดตงาน
+    // $watchwork = Generatelist::all();
+    // foreach ($watchwork as $d) {
+    //     // echo "โพสต์: $d->idgenerate_list\n";
+    //     echo "โพสต์: $d->imagework\n";
+    // $data = Generatelist::all();
+    // dd($data->imagework);
+// }
+    
 }
 
 }

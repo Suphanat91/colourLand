@@ -74,6 +74,7 @@ Route::middleware(['admin'])->group(function () {
     
     // Route สำหรับการไม่ยอมรับ order
     Route::post('/order/{order}/reject', [OrderController::class, 'rejectOrder'])->name('order.reject');
+    Route::get('/updatework', [OrderController::class, 'updatework'])->name('update.work');
     
     
     

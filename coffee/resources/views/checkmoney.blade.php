@@ -33,11 +33,12 @@
                     
                     <td>{{$d->count_t}} ถาด</td>
                     <td>{{$d->price_t}} บาท</td>
-                    <td>{{$d->slip}}</td> 
+                    
+                    <td style="text-align: center";> <img src="{{$d->slip}}" alt="" style="max-width: 250px; max-height: 250px; "></td>
                     <td>{{$d->created_at}}</td> 
                     
                     <td>
-                      @if ($d->status4 == 0)
+                      @if ($d->status4 == 1)
                         <form action="{{ route('order.accept1', $d->idorder) }}" method="POST">
                           @csrf
                           <button type="submit" class="btn btn-success">จ่ายเงินถูกต้อง</button>
