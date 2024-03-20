@@ -202,17 +202,27 @@ public function rejectOrder(Order $order)
     // Redirect กลับไปยังหน้าที่มี list ของ orders
     return back()->with('success', 'Order has been rejected.');
 }
-public function updatework()
+public function updatework(Generatelist $generatelist)
 {
-    $watchwork = Generatelist::has('imagework')->get(); //เอาดูการอัพเดตงาน
+    // $watchwork = Generatelist::has('imagework')->get(); //เอาดูการอัพเดตงาน
+    // return view('watchwork', compact('watchwork'));
+    $generatelists = Generatelist::has('imagework')->get(); // เปลี่ยนชื่อตัวแปรเป็น generatelists
+    $imagework = $generatelist->imagework;
+    return view('watchwork', compact('generatelists','generatelist', 'imagework')); // เปลี่ยน compact('watchwork') เป็น compact('generatelists')
     // $watchwork = Generatelist::all();
-    // foreach ($watchwork as $d) {
-    //     // echo "โพสต์: $d->idgenerate_list\n";
-    //     echo "โพสต์: $d->imagework\n";
-    // $data = Generatelist::all();
-    // dd($data->imagework);
+//     foreach ($watchwork as $d) {
+//         // echo "โพสต์: $d->idgenerate_list\n";
+//         echo "โพสต์: $d->user.name\n";
+//     // $data = Generatelist::all();
+    // dd($watchwork);
 // }
     
 }
+
+public function imagework(Generatelist $generatelist)
+    {
+        $imagework = $generatelist->imagework;
+        return view('showwork', compact('generatelist', 'imagework'));
+    }
 
 }

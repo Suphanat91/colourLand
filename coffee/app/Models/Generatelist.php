@@ -11,7 +11,7 @@ class Generatelist extends Model
     protected $table = 'generate_list';
     protected $primaryKey = 'idgenerate_list';
     public function user(){
-        return $this->belongsTo(User::class,'users_id');
+        return $this->belongsTo(User::class,'user_id');
     }
     public function orderlist(){
         return $this->belongsTo(Orderlist::class,'orderlist_idorderlist');
