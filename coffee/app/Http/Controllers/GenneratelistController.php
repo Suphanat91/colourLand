@@ -78,7 +78,10 @@ return view('generatelist', ['orderItems' => $orderItems]);
      */
     public function show($id)
     {
-        
+        $generatelist = Generatelist::all();
+
+        // ส่งข้อมูลไปยัง view และแสดงผล
+        return view('allgeneratelist', compact('generatelist'));
 
 // return view('generate', ['generateItems' => $generateItems]);
 
@@ -153,6 +156,16 @@ return view('generatelist', ['orderItems' => $orderItems]);
     }
 
     return back()->with('error', 'ต้องการ Order ID และสถานะ');
+    }
+    public function allgeneratelist()
+    {
+        $generatelist = Generatelist::all();
+
+        // ส่งข้อมูลไปยัง view และแสดงผล
+        return view('allgeneratelist', compact('generatelist'));
+        // return('uuu');
+// return view('generate', ['generateItems' => $generateItems]);
+
     }
 
 }

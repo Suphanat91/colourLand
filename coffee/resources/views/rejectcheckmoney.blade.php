@@ -33,7 +33,8 @@
                     
                     <td>{{$d->count_t}} ถาด</td>
                     <td>{{$d->price_t}} บาท</td>
-                    <td>{{$d->slip}}</td> 
+                   
+                    <td style="text-align: center";> <img src="{{$d->slip}}" alt="" style="max-width: 250px; max-height: 250px;" > </td> 
                     <td>{{$d->created_at}}</td> 
                     
                     <td>

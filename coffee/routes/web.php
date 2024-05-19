@@ -8,6 +8,7 @@ use App\Http\Controllers\GenerateController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GenneratelistController;
+use App\Http\Controllers\ImageQrController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,7 +55,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/orderlist/{id}', [OrderController::class, 'show'])->name('orderlist.show');
     Route::post('/orderlist/updateStatus', [OrderController::class, 'updateStatus'])->name('orderlist.updateStatus');
     // Route::get('/generatelist/{id}', [GeneratelistController::class, 'show'])->name('generatelists.show');
-    
+    Route::get('/allgeneratelist', [App\Http\Controllers\GenneratelistController::class, 'allgeneratelist'])->name('allgeneratelist');
     Route::get('/addgeneratelist1/{id}', [App\Http\Controllers\GenneratelistController::class, 'addform']);
     Route::post('/generatelits1/{id}', [App\Http\Controllers\GenneratelistController::class, 'generatelist']);
     Route::post('/generatelist/updateStatus', [GenneratelistController::class, 'updateStatus'])->name('orderlist.updateStatus');
@@ -69,6 +70,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/checkmoney', [App\Http\Controllers\OrderController::class, 'checkmoney']);
     Route::get('/acceptcheckmoney', [App\Http\Controllers\OrderController::class, 'acceptcheckmoney']);
     Route::get('/rejectcheckmoney', [App\Http\Controllers\OrderController::class, 'rejectcheckmoney']);
+
     // Route สำหรับการยอมรับ order
     Route::post('/order/{order}/accept', [OrderController::class, 'acceptOrder1'])->name('order.accept1');
     
@@ -76,7 +78,11 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/order/{order}/reject', [OrderController::class, 'rejectOrder'])->name('order.reject');
     Route::get('/updatework', [OrderController::class, 'updatework'])->name('update.work');
     Route::get('/generatelist/{generatelist}/imagework', [OrderController::class, 'imagework'])->name('generatelist.imagework.imagework');
-    
+    Route::resource('imageQR',ImageQrController::class);
+    // Route::get('/images/create', [ImageQRController::class, 'create'])->name('images.create');
+    // Route::post('/images/store', [ImageQRController::class, 'store'])->name('images.store');
+    // Route::get('/images/{id}/edit', [ImageQRController::class, 'edit'])->name('images.edit');
+    // Route::put('/images/{id}', [ImageQRController::class, 'update'])->name('images.update');
     
     // Assuming you have the routes defined like this
     
